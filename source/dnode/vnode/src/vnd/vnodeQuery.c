@@ -396,15 +396,15 @@ int32_t vnodeGetBatchMeta(SVnode *pVnode, SRpcMsg *pMsg) {
     switch (req->msgType) {
       case TDMT_VND_TABLE_META:
         // error code has been set into reqMsg, no need to handle it here.
-        (void)vnodeGetTableMeta(pVnode, &reqMsg, false);
+        code = vnodeGetTableMeta(pVnode, &reqMsg, false);
         break;
       case TDMT_VND_TABLE_CFG:
         // error code has been set into reqMsg, no need to handle it here.
-        (void)vnodeGetTableCfg(pVnode, &reqMsg, false);
+        code = vnodeGetTableCfg(pVnode, &reqMsg, false);
         break;
       case TDMT_VND_GET_STREAM_PROGRESS:
         // error code has been set into reqMsg, no need to handle it here.
-        (void)vnodeGetStreamProgress(pVnode, &reqMsg, false);
+        code = vnodeGetStreamProgress(pVnode, &reqMsg, false);
         break;
       default:
         qError("invalid req msgType %d", req->msgType);
